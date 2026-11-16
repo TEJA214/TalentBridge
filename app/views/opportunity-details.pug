@@ -1,0 +1,49 @@
+
+extends layout
+
+block content
+    .page-title
+        h1= opportunity.title
+        p Opportunity details and requirements
+
+    .opportunity-card
+        h2= opportunity.company_name
+
+        p
+            strong Description:
+            |  #{opportunity.description}
+
+        p
+            strong Company:
+            |  #{opportunity.company_description || "Not provided"}
+
+        p
+            strong Location:
+            |  #{opportunity.location}
+
+        p
+            strong Application Deadline:
+            |  #{opportunity.deadline}
+
+        p
+            strong Status:
+            |  #{opportunity.status}
+
+    h2 Required Skills
+
+    if skills.length
+        .dashboard-grid
+            each skill in skills
+                .opportunity-card
+                    h3= skill.skill_name
+    else
+        p No specific skills listed.
+
+    if opportunity.status === "open"
+        a.apply-button(href="/applications/new/" + opportunity.opportunity_id)
+            | Apply Now
+    else
+        p Applications are currently closed.
+
+    p
+        a(href="/opportunities") Back to Opportunities

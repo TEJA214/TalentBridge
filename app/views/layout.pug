@@ -1,0 +1,26 @@
+
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title= title || 'TalentBridge'
+        link(rel="stylesheet", href="/css/style.css")
+
+    body
+        header.navbar
+            .logo
+                a(href="/") TalentBridge
+
+            nav
+                a(href="/") Home
+                a(href="/db_test") Opportunities
+                a(href="/applications") Applications
+                a(href="/student/dashboard") Student Dashboard
+                a(href="/employer/dashboard") Employer Dashboard
+
+        main.container
+            block content
+
+        footer.footer
+            p © 2026 TalentBridge. Connecting students with opportunities.

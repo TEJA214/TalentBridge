@@ -1,0 +1,26 @@
+
+extends layout
+
+block content
+    .page-title
+        h1 Apply for Opportunity
+        p Complete the form below to submit your application.
+
+    .opportunity-card
+        h2= opportunity.title
+
+        form(action="/applications/submit/" + opportunity.opportunity_id method="POST")
+            label(for="cover_letter") Cover Letter
+
+            textarea(
+                id="cover_letter"
+                name="cover_letter"
+                rows="8"
+                placeholder="Explain why you are suitable for this opportunity..."
+                required
+            )
+
+            button(type="submit") Submit Application
+
+    p
+        a(href="/opportunities") Back to Opportunities

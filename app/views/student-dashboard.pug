@@ -1,0 +1,54 @@
+
+extends layout
+
+block content
+    .page-title
+        h1 Student Dashboard
+        p Welcome back, #{student.name}
+
+    .dashboard-grid
+        .opportunity-card
+            h3 My Education
+            p= student.education
+
+        .opportunity-card
+            h3 My Location
+            p= student.location
+
+        .opportunity-card
+            h3 Total Skills
+            h2= skills.length
+
+        .opportunity-card
+            h3 Total Applications
+            h2= applications.length
+
+    h2 My Skills
+
+    .dashboard-grid
+        each skill in skills
+            .opportunity-card
+                h3= skill.skill_name
+                p Proficiency: #{skill.proficiency}
+
+    h2 Recommended Opportunities
+
+    if recommendations.length
+        each opportunity in recommendations
+            .opportunity-card
+                h3= opportunity.title
+                p Location: #{opportunity.location}
+                p Skill Match: #{opportunity.match_percentage}%
+    else
+        p No recommendations available.
+
+    h2 Recent Applications
+
+    if applications.length
+        each application in applications
+            .opportunity-card
+                h3= application.title
+                p Status: #{application.application_status}
+                p Applied: #{application.application_date}
+    else
+        p You have not submitted any applications yet.

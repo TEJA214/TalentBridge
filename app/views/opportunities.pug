@@ -1,0 +1,24 @@
+
+extends layout
+
+block content
+    .page-title
+        h1 Available Opportunities
+        p Discover internships and jobs matching your skills.
+
+    if opportunities.length
+        each opportunity in opportunities
+            .opportunity-card
+                h3= opportunity.title
+                p= opportunity.description
+                p
+                    strong Location:
+                    |  #{opportunity.location}
+                p
+                    strong Deadline:
+                    |  #{opportunity.deadline}
+                p
+                    strong Status:
+                    |  #{opportunity.status}
+    else
+        p No opportunities available.
