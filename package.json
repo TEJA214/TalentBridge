@@ -1,7 +1,8 @@
+
 {
-  "name": "sd2-example",
+  "name": "talentbridge",
   "version": "1.0.0",
-  "description": "",
+  "description": "AI-Assisted University Internship Management Platform",
   "main": "index.js",
   "scripts": {
     "start": "supervisor index.js",
